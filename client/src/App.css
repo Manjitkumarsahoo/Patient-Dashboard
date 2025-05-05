@@ -1,0 +1,25 @@
+/* Main app layout */
+.app-content {
+    padding: 1rem;
+    padding-top: 80px; /* Account for fixed navbar */
+    min-height: calc(100vh - 80px);
+  }
+  
+  /* Animation for page transitions */
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
