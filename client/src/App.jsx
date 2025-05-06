@@ -5,7 +5,6 @@ import Dashboard from './pages/Dashboard';
 import WeightProgress from './pages/WeightProgress';
 import Shipments from './pages/Shipments';
 import Navbar from './components/Navbar';
-//import './styles/App.css';
 
 function App() {
   const [user, setUser] = useState(null);

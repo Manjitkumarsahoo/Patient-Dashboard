@@ -18,7 +18,7 @@ function Shipments({ user }) {
         setIsLoading(false);
       }
     };
-    
+
     fetchShipmentData();
   }, [user.id]);
 
@@ -34,7 +34,7 @@ function Shipments({ user }) {
   return (
     <div className="shipments-container">
       <h1 className="page-title">Medication Shipments</h1>
-      
+
       {shipments.length === 0 ? (
         <div className="no-shipments card">
           <p>No shipments found</p>
@@ -49,7 +49,7 @@ function Shipments({ user }) {
                   {shipment.status}
                 </span>
               </div>
-              
+
               <div className="shipment-details">
                 <div className="detail">
                   <span className="detail-label">Estimated Delivery:</span>
@@ -57,7 +57,7 @@ function Shipments({ user }) {
                     {new Date(shipment.estimatedDelivery).toLocaleDateString()}
                   </span>
                 </div>
-                
+
                 {shipment.actualDelivery && (
                   <div className="detail">
                     <span className="detail-label">Delivered On:</span>
@@ -66,7 +66,7 @@ function Shipments({ user }) {
                     </span>
                   </div>
                 )}
-                
+
                 {shipment.trackingNumber && (
                   <div className="detail">
                     <span className="detail-label">Tracking Number:</span>
@@ -76,12 +76,13 @@ function Shipments({ user }) {
                   </div>
                 )}
               </div>
-              
-              {shipment.status === 'shipped' && (
+
+              {(shipment.status === 'shipped' || shipment.status === 'preparing') && (
                 <button className="btn btn-primary track-button">
                   Track Package
                 </button>
               )}
+
             </div>
           ))}
         </div>

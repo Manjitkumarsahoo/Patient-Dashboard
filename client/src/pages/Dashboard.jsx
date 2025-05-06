@@ -21,7 +21,7 @@ function Dashboard({ user }) {
         setIsLoading(false);
       }
     };
-    
+
     fetchData();
   }, [user.id]);
 
@@ -36,17 +36,18 @@ function Dashboard({ user }) {
   if (!dashboardData) return <div className="no-data">No data available</div>;
 
   const { weightEntries, shipments } = dashboardData;
-  const latestWeight = weightEntries.length > 0 
-    ? weightEntries[weightEntries.length - 1].weight 
+
+  const latestWeight = weightEntries.length > 0
+    ? weightEntries[weightEntries.length - 1].weight
     : user.currentWeight;
-  
+
   const nextShipment = shipments.find(s => s.status !== 'delivered');
   const bmi = (latestWeight / (user.height * user.height)) * 703;
 
   return (
     <div className="dashboard-container">
       <h1 className="dashboard-title">Welcome back, {user.name.split(' ')[0]}</h1>
-      
+
       <div className="summary-grid">
         <div className="summary-card health-card">
           <h3>Current Health</h3>
@@ -64,28 +65,28 @@ function Dashboard({ user }) {
               <span className="stat-label">Goal</span>
             </div>
           </div>
-          <button 
+          <button
             onClick={() => navigate('/weight')}
             className="btn btn-primary"
           >
             Track Progress
           </button>
         </div>
-        
+
         {nextShipment && (
           <div className="summary-card shipment-card">
             <h3>Next Medication</h3>
             <div className="shipment-info">
               <p><strong>Type:</strong> {nextShipment.medication}</p>
               <p><strong>Dosage:</strong> {nextShipment.dosage}</p>
-              <p><strong>Status:</strong> 
+              <p><strong>Status:</strong>
                 <span className={`status-badge ${nextShipment.status}`}>
                   {nextShipment.status}
                 </span>
               </p>
               <p><strong>Expected:</strong> {new Date(nextShipment.estimatedDelivery).toLocaleDateString()}</p>
             </div>
-            <button 
+            <button
               onClick={() => navigate('/shipments')}
               className="btn btn-primary"
             >
@@ -94,7 +95,7 @@ function Dashboard({ user }) {
           </div>
         )}
       </div>
-      
+
       <div className="chart-container card">
         <h3>Weight Progress</h3>
         <div className="chart-wrapper">

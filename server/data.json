@@ -47,6 +47,15 @@
       "userId": "1",
       "medication": "Semaglutide",
       "dosage": "0.75mg",
+      "status": "preparing",
+      "estimatedDelivery": "2023-04-25",
+      "trackingNumber": "UPS123456787"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "medication": "Semaglutide",
+      "dosage": "0.75mg",
       "status": "shipped",
       "estimatedDelivery": "2023-04-15",
       "trackingNumber": "UPS123456789"

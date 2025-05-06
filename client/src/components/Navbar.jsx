@@ -45,7 +45,7 @@ const Navbar = ({ user, onLogout }) => {
         <div className="navbar-user">
           <div className="user-greeting">
             <i className="fas fa-user-circle"></i>
-            <span>Hi, {user?.name.split(' ')[0]}</span>
+            <span>Hi, {user?.name.split(' ')[0] ||"Guest"}</span>
           </div>
           <button onClick={handleLogout} className="logout-button">
             <i className="fas fa-sign-out-alt"></i> Logout
